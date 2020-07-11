@@ -1,5 +1,5 @@
 # Shiny Goggles
-Shiny Goggles is a Tiny Random Password Generator Web App Written in HTML, CSS &amp; Javascript.
+Shiny Goggles is a Tiny Random Password Generator Web App Written in HTML, CSS &amp; JavaScript.
 
 
 __Support My Work By Starring This Repository on Github.__
