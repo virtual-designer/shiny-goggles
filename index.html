@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Random Password Generator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="notify">
+
+	</div>
+  <div class="wrapper">
+  	<h3>Random Password Generator</h3>
+  	
+  	<input type="text" onload="this.value = '';" id="password" value="" placeholder="Generated Password" readonly="readonly">
+  	<i class="fa fa-clone"></i>
+  	<button id="btn">Generate Password</button>
+  </div>
+  <script>
+  	var proPass2;
+  	var cpBtn = document.querySelector(".fa-clone");
+  	document.getElementById("password").value = '';
+  	document.getElementById("password").onclick = function(){
+  		document.getElementById("password").contextmenu();
+  	};
+  	document.getElementById("btn").onclick = function(){
+  		
+	  	var chars = "01456ABG789HIJfghijKLMNOPQ23RSTUVWXYZabcdeklmCDEFnopqrstuvwxuz!,=\"'\\[/{?)><.;:}(]*-_#$@~%+^& ";
+	  	var genPass = "";
+	  	
+	  	for(var i = 0; i < chars.length; i++){
+	  		var rand2 = Math.random();
+	  		
+	  		if(Math.ceil(rand2) == Math.round(rand2)){
+	  			genPass += "";
+	  		}
+	  		else {
+	  			genPass += chars[i];
+	  		}
+	  	}
+	  	var rand = Math.random();
+	  		
+	  	var proPass = genPass.substr(0, Math.ceil(chars.length / 5));
+	  	
+	  	if(Math.round(rand) == Math.floor(rand)){
+	  		proPass = genPass.substr(Math.ceil(chars.length / 5), chars.length);
+	  	}
+	  	
+	  	
+	  	document.getElementById("password").value = proPass.substr(Math.ceil(proPass.length / 2), proPass.length);
+	  	proPass2 = proPass;
+  	};
+  	cpBtn.onclick = function(){
+  		var el = document.getElementById("password");
+  		if(el.value != ""){
+	  		el.select();
+	  		el.setSelectionRange(0, 1000);
+	  		document.execCommand("copy");
+	  		
+	  		document.getElementById("notify").style.opacity = "1";
+	  		var cpp = document.getElementById("notify");
+	  		cpp.innerHTML = "Password Copied: " + proPass2.substr(Math.ceil(proPass2.length / 2), proPass2.length);
+	  		var c = setTimeout(function(){
+	  			document.getElementById("notify").style.opacity = "0";
+	  		}, 3000);
+  		}
+  	};
+  </script>
+</body>
+</html>
