@@ -84,6 +84,13 @@ body {
 	padding-top: 15px;
 	color: #fff;
 }
+@media only screen and (min-width: 970px){
+	.fa-clone {
+		position: absolute;
+		top: 260px;
+		right: 80px;
+	}
+}
 @font-face {
   font-family: Consolas;
   src: url(font/consolas.ttf);
